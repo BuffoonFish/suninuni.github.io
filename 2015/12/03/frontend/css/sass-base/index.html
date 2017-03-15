@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>那些SASS希望你知道的事 | Suninuni</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="baidu-site-verification" content="9U7P6kzHUi" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Suninuni">
+    <meta name="author" content="Buffoon Sun">
+    <meta name="description" content="Sun Zhenyu" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/image/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Suninuni" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/solarized_light.css" type="text/css">
+    
+
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <style id='inline-css' type='text/css'>
+    #backtoTop {
+        background-color: #eee;
+        border-radius: 100%;
+        bottom: 10%;
+        height: 48px;
+        position: fixed;
+        right: -100px;
+        width: 48px;
+        transition: 0.5s;
+        -webkit-transition: 0.5s
+    }
+    #backtoTop.button--show {
+        right: 85px;
+        bottom: 120px;
+        z-index: 100;
+    }
+    .per {
+        font-size:16 px;
+        height: 48px;
+        line-height: 48px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 48px;
+        color: #666;
+        cursor: pointer
+    }
+    .per:before {
+        content: attr(data-percent);
+        font-size: 20px
+    }
+    .per:hover:before {
+        content: "Top↑";
+        font-size: 15px
+    }
+</style>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/image/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Design-pattern/" class="animsition-link">Design pattern<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/Implement/" class="animsition-link">Implement<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/JavaScript/" class="animsition-link">JavaScript<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Linux/" class="animsition-link">Linux<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Tags<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/tags/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/AngularJS/" class="animsition-link">AngularJS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Atom/" class="animsition-link">Atom<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Expect/" class="animsition-link">Expect<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/JavaScript/" class="animsition-link">JavaScript<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/OO/" class="animsition-link">OO<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Redis/" class="animsition-link">Redis<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Router/" class="animsition-link">Router<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/SASS/" class="animsition-link">SASS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Share/" class="animsition-link">Share<small>(5)</small></a></li>
+				    
+				    <li><a href="/tags/Shell/" class="animsition-link">Shell<small>(3)</small></a></li>
+				    
+				    <li><a href="/tags/String/" class="animsition-link">String<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/TKL/" class="animsition-link">TKL<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/VIM/" class="animsition-link">VIM<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/git/" class="animsition-link">git<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/job/" class="animsition-link">job<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/nodePPT/" class="animsition-link">nodePPT<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript权威指南》/" class="animsition-link">《JavaScript权威指南》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript语言精粹》/" class="animsition-link">《JavaScript语言精粹》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/前端/" class="animsition-link">前端<small>(3)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://html5ify.com/fks/" class="animsition-link">Front-end Skill Stack</a></li>
+                    
+                    <li><a href="http://hexo.io/" class="animsition-link">Hexo</a></li>
+                    
+                    <li><a href="https://leetcode.com/problemset/algorithms/" class="animsition-link">LeetCode</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/image/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Suninuni</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/image/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>LEARN AND LIVE.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>Living by coding life。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2015-12-02T16:00:00.000Z" itemprop="datePublished">
+          2015-12-03
+      </time>
+    
+    
+    | 
+    <a href='/tags/前端/'>前端</a>,
+    
+    <a href='/tags/SASS/'>SASS</a>,
+    
+    <a href='/tags/CSS/'>CSS</a>
+    
+    
+</span>
+                <h1>那些SASS希望你知道的事</h1>
+            </div>
+        </div>
+        <div class="row col-md-offset-2">
+      		<div class="col-md-8">
+                <p>SASS(<code>Syntactically Awesome Style Sheets</code>)是一种CSS的预处理框架，它使编写CSS变得有组织性并富有逻辑，而不是一味平铺直诉，同样的也让大量的CSS变得易于维护。本文会解释一些SASS引以为傲的特性，这也是为什么我们会选择使用它的原因。</p>
+<a id="more"></a>
+<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><p>SASS允许声明以<code>$</code>开头的变量（通常情况下可以看做是常量，<code>array</code>与<code>map</code>类型的可以修改），而且变量名和值之间需要使用<code>:</code>分开，与CSS属性设置类似。</p>
+<pre><code><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$key</span>: value;</div></pre></td></tr></table></figure>
+</code></pre><p>变量的作用域在<code>{}</code>内，如果该变量不在任何<code>{}</code>内，则为全局变量，在其他文件中也可以使用（这些文件是通过<code>@import</code>编译到一起的）。</p>
+<p>建议所有的常量都使用变量，尽可能使用通用的全局变量（控制同一样式），这样在之后对样式的尺寸进行调整的时候仅需对变量进行修改。Bootstrap的个人定制就是通过对源码使用的全局变量进行修改，从而改变全局样式。</p>
+<h2 id="Nesting（嵌套）"><a href="#Nesting（嵌套）" class="headerlink" title="Nesting（嵌套）"></a>Nesting（嵌套）</h2><p>嵌套分为选择器的嵌套和属性的嵌套，前者使样式的嵌套关系更加清晰，后者可以极大的减少代码量。</p>
+<h3 id="选择器嵌套"><a href="#选择器嵌套" class="headerlink" title="选择器嵌套"></a>选择器嵌套</h3><p>嵌套层次不应过深，最好小于3层，不大于5层。</p>
+<pre><code><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.table</span> &#123;</div><div class="line">    <span class="selector-class">.tr</span> &#123;</div><div class="line">        <span class="selector-class">.th</span> &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="属性嵌套"><a href="#属性嵌套" class="headerlink" title="属性嵌套"></a>属性嵌套</h3><pre><code><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.sun-font</span> &#123;</div><div class="line">    <span class="attribute">font</span>: &#123;</div><div class="line">        style: italic;</div><div class="line">        family: serif;</div><div class="line">        weight: bold;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="Mixins"><a href="#Mixins" class="headerlink" title="Mixins"></a>Mixins</h2><p>Mixins类似与<code>c++</code>中的模板，可以将一部分样式抽出，作为单独定义的模块，被很多选择器重复使用。通过<code>@mixin</code>定义，<code>@include</code>或者<code>+</code>调用。SASS会将Mixins中的插入到调用此Mixins的选择器。Mixin可以定义参数与默认值，不同的选择器可以传入不同的参数，从而重用公用的CSS样式并设置特异化的属性。</p>
+<pre><code><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> example(<span class="variable">$height</span>: 100px, <span class="variable">$width</span>: 100px) &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="variable">$height</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.out</span> &#123;</div><div class="line">    @<span class="keyword">include</span> example();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.in</span> &#123;</div><div class="line">    +example(200px, 200px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>但是这会造成编译出的CSS中有大量重复代码的冗余。</p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.out</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.in</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="Selector-Inheritance"><a href="#Selector-Inheritance" class="headerlink" title="Selector Inheritance"></a>Selector Inheritance</h2><p>继承就是拷贝父选择器的所有属性，但不可以在继承时设置变量。与Mixins类似，但是在解析方式上有所不同。比如：</p>
+<pre><code><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.point</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.a-point</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> .point</div><div class="line">    padding: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.b-point</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> .point</div><div class="line">    padding: 20px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">%percent &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.a-percent</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> %percent</div><div class="line">    padding: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.b-percent</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> %percent</div><div class="line">    padding: 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>编译出的CSS：</p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.point</span> <span class="selector-class">.a-point</span> <span class="selector-class">.b-point</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.a-point</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.b-point</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.a-percent</span> <span class="selector-class">.b-percent</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.a-percent</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.b-percent</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="Logical-operations"><a href="#Logical-operations" class="headerlink" title="Logical operations"></a>Logical operations</h2><ol>
+<li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>(注意运算与单位相关)</li>
+<li><code>@if</code>和<code>@else</code></li>
+<li><code>@for $i from $start to $end</code>($start ~ $end - 1)，<code>@foreach $i from $start through $end</code>($start ~ $end)和<code>@each $i in a, b, c</code></li>
+<li><code>@while</code></li>
+</ol>
+
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+            
+                <div class="col-md-4">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Variables"><span class="toc-text">Variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nesting（嵌套）"><span class="toc-text">Nesting（嵌套）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择器嵌套"><span class="toc-text">选择器嵌套</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性嵌套"><span class="toc-text">属性嵌套</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mixins"><span class="toc-text">Mixins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selector-Inheritance"><span class="toc-text">Selector Inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logical-operations"><span class="toc-text">Logical operations</span></a></li></ol>
+                </div>
+            
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2015/12/04/implement/nodeppt/" style="float: left;">
+        ← nodePPT - 让你爱上做分享！
+    </a>
+    
+    
+    <a class="pull-right" href="/2015/12/01/frontend/js/ui-router/">
+        Angular-Ui/ui-Router →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2015/12/03/frontend/css/sass-base/" data-title="那些SASS希望你知道的事" data-url="http://suninuni.com/2015/12/03/frontend/css/sass-base/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"Suninuni"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2015<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Buffoon Sun. All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+
+      <!-- Load our scripts -->
+
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    var bigfa_scroll = {
+        drawCircle: function(id, percentage, color) {
+            var button = $(id)
+            var width = button.width();
+            var height = button.height();
+            var radius = parseInt(width / 2.20);
+            var position = width;
+            var positionBy2 = position / 2;
+            var bg = button[0];
+            id = id.split("#");
+            var ctx = bg.getContext("2d");
+            var imd = null;
+            var circ = Math.PI * 2;
+            var quart = Math.PI / 2;
+            ctx.clearRect(0, 0, width, height);
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineCap = "square";
+            ctx.closePath();
+            ctx.fill();
+            ctx.lineWidth = 3;
+            imd = ctx.getImageData(0, 0, position, position);
+            var draw = function(current, ctxPass) {
+                ctxPass.putImageData(imd, 0, 0);
+                ctxPass.beginPath();
+                ctxPass.arc(positionBy2, positionBy2, radius, -(quart), ((circ) * current) - quart, false);
+                ctxPass.stroke();
+            }
+            draw(percentage / 100, ctx);
+        },
+        backToTop: function($this) {
+            $this.click(function() {
+                jQuery("body,html").animate({
+                    scrollTop: jQuery(window).height()
+                },
+                800);
+                return false;
+            });
+        },
+        scrollHook: function($this, color) {
+            color = color ? color: "#000000";
+            $this.scroll(function() {
+                var docHeight = (jQuery(document).height() - jQuery(window).height()),
+                $windowObj = $this,
+                $per = jQuery(".per"),
+                percentage = 0;
+                defaultScroll = $windowObj.scrollTop();
+                percentage = parseInt((defaultScroll / docHeight) * 100);
+                var backToTop = jQuery("#backtoTop");
+                if (backToTop.length > 0) {
+                    if ($windowObj.scrollTop() > jQuery(window).height()) {
+                        backToTop.addClass("button--show");
+                    } else {
+                        backToTop.removeClass("button--show");
+                    }
+                    if (document.body.clientWidth < 1111) {
+                        backToTop.removeClass("button--show");
+                    }
+                    $per.attr("data-percent", percentage);
+                    bigfa_scroll.drawCircle("#backtoTopCanvas", percentage, color);
+                }
+
+            });
+        }
+    }
+
+    $(document).ready(function($) {
+    $("body").append('<div id="backtoTop" data-action="gototop"><canvas id="backtoTopCanvas" width="48" height="48"></canvas><div class="per"></div></div>');
+        var T = bigfa_scroll;
+        T.backToTop($("#backtoTop"));
+        T.scrollHook($(window), "#666666");
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+
+</body>
+</html>

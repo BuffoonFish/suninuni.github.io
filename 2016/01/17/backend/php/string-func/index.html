@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>PHP处理字符串函数 | Suninuni</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="baidu-site-verification" content="9U7P6kzHUi" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Suninuni">
+    <meta name="author" content="Buffoon Sun">
+    <meta name="description" content="Sun Zhenyu" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/image/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Suninuni" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/solarized_light.css" type="text/css">
+    
+
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <style id='inline-css' type='text/css'>
+    #backtoTop {
+        background-color: #eee;
+        border-radius: 100%;
+        bottom: 10%;
+        height: 48px;
+        position: fixed;
+        right: -100px;
+        width: 48px;
+        transition: 0.5s;
+        -webkit-transition: 0.5s
+    }
+    #backtoTop.button--show {
+        right: 85px;
+        bottom: 120px;
+        z-index: 100;
+    }
+    .per {
+        font-size:16 px;
+        height: 48px;
+        line-height: 48px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 48px;
+        color: #666;
+        cursor: pointer
+    }
+    .per:before {
+        content: attr(data-percent);
+        font-size: 20px
+    }
+    .per:hover:before {
+        content: "Top↑";
+        font-size: 15px
+    }
+</style>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/image/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Design-pattern/" class="animsition-link">Design pattern<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/Implement/" class="animsition-link">Implement<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/JavaScript/" class="animsition-link">JavaScript<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Linux/" class="animsition-link">Linux<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Tags<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/tags/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/AngularJS/" class="animsition-link">AngularJS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Atom/" class="animsition-link">Atom<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Expect/" class="animsition-link">Expect<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/JavaScript/" class="animsition-link">JavaScript<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/OO/" class="animsition-link">OO<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Redis/" class="animsition-link">Redis<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Router/" class="animsition-link">Router<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/SASS/" class="animsition-link">SASS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Share/" class="animsition-link">Share<small>(5)</small></a></li>
+				    
+				    <li><a href="/tags/Shell/" class="animsition-link">Shell<small>(3)</small></a></li>
+				    
+				    <li><a href="/tags/String/" class="animsition-link">String<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/TKL/" class="animsition-link">TKL<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/VIM/" class="animsition-link">VIM<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/git/" class="animsition-link">git<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/job/" class="animsition-link">job<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/nodePPT/" class="animsition-link">nodePPT<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript权威指南》/" class="animsition-link">《JavaScript权威指南》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript语言精粹》/" class="animsition-link">《JavaScript语言精粹》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/前端/" class="animsition-link">前端<small>(3)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://html5ify.com/fks/" class="animsition-link">Front-end Skill Stack</a></li>
+                    
+                    <li><a href="http://hexo.io/" class="animsition-link">Hexo</a></li>
+                    
+                    <li><a href="https://leetcode.com/problemset/algorithms/" class="animsition-link">LeetCode</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/image/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Suninuni</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/image/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>LEARN AND LIVE.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>Living by coding life。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished">
+          2016-01-17
+      </time>
+    
+    
+    | 
+    <a href='/tags/PHP/'>PHP</a>,
+    
+    <a href='/tags/String/'>String</a>
+    
+    
+</span>
+                <h1>PHP处理字符串函数</h1>
+            </div>
+        </div>
+        <div class="row col-md-offset-2">
+      		<div class="col-md-8">
+                <p>处理函数的列表，以供查询。</p>
+<a id="more"></a>
+<p>addcslashes — 为字符串里面的部分字符添加反斜线转义字符<br>addslashes — 用指定的方式对字符串里面的字符进行转义<br>bin2hex — 将二进制数据转换成十六进制表示<br>chop — rtrim() 的别名函数<br>chr — 返回一个字符的ASCII码<br>chunk_split — 按一定的字符长度将字符串分割成小块<br>convert_cyr_string — 将斯拉夫语字符转换为别的字符<br>convert_uudecode — 解密一个字符串<br>convert_uuencode — 加密一个字符串<br>count_chars — 返回一个字符串里面的字符使用信息<br>crc32 — 计算一个字符串的crc32多项式<br>crypt — 单向散列加密函数<br>echo — 用以显示一些内容<br>explode — 将一个字符串用分割符转变为一数组形式<br>fprintf — 按照要求对数据进行返回，并直接写入文档流<br>get_html_translation_table — 返回可以转换的HTML实体<br>hebrev — 将Hebrew编码的字符串转换为可视的文本<br>hebrevc — 将Hebrew编码的字符串转换为可视的文本<br>html_entity_decode — htmlentities ()函数的反函数，将HTML实体转换为字符<br>htmlentities — 将字符串中一些字符转换为HTML实体<br>htmlspecialchars_decode —htmlspecialchars()函数的反函数，将HTML实体转换为字符<br>htmlspecialchars — 将字符串中一些字符转换为HTML实体<br>implode — 将数组用特定的分割符转变为字符串<br>join — 将数组转变为字符串，implode()函数的别名<br>levenshtein — 计算两个词的差别大小<br>localeconv — 获取数字相关的格式定义<br>ltrim — 去除字符串左侧的空白或者指定的字符<br>md5_file — 将一个文件进行MD5算法加密<br>md5 — 将一个字符串进行MD5算法加密<br>metaphone — 判断一个字符串的发音规则<br>money_format — 按照参数对数字进行格式化的输出<br>nl_langinfo — 查询语言和本地信息<br>nl2br — 将字符串中的换行符<code>\n</code>替换成<code>&lt;br/&gt;</code><br>number_format — 按照参数对数字进行格式化的输出<br>ord — 将一个ASCII码转换为一个字符<br>parse_str — 把一定格式的字符串转变为变量和值<br>print — 用以输出一个单独的值<br>printf — 按照要求对数据进行显示<br>quoted_printable_decode — 将一个字符串加密为一个8位的二进制字符串<br>quotemeta — 对若干个特定字符进行转义<br>rtrim — 去除字符串右侧的空白或者指定的字符<br>setlocale — 设置关于数字，日期等等的本地格式<br>sha1_file — 将一个文件进行SHA1算法加密<br>sha1 — 将一个字符串进行SHA1算法加密<br>similar_text — 比较两个字符串，返回系统认为的相似字符个数<br>soundex — 判断一个字符串的发音规则<br>sprintf — 按照要求对数据进行返回，但是不输出<br>sscanf — 可以对字符串进行格式化<br>str_ireplace — 像str_replace()函数一样匹配和替换字符串，但是不区分大小写<br>str_pad — 对字符串进行两侧的补白<br>str_repeat — 对字符串进行重复组合<br>str_replace — 匹配和替换字符串<br>str_rot13 — 将字符串进行ROT13加密处理<br>str_shuffle — 对一个字符串里面的字符进行随机排序<br>str_split — 将一个字符串按照字符间距分割为一个数组<br>str_word_count — 获取字符串里面的英文单词信息<br>strcasecmp — 对字符串进行大小比较，不区分大小写<br>strchr — 通过比较返回一个字符串的部分strstr()函数的别名<br>strcmp — 对字符串进行大小比较<br>strcoll – 根据本地设置对字符串进行大小比较<br>strcspn — 返回字符连续非匹配长度的值<br>strip_tags — 去除一个字符串里面的HTML和PHP代码<br>stripcslashes — 反转义addcslashes()函数转义处理过的字符串<br>stripos — 查找并返回首个匹配项的位置，匹配不区分大小写<br>stripslashes — 反转义addslashes()函数转义处理过的字符串<br>stristr — 通过比较返回一个字符串的部分，比较时不区分大小写<br>strlen — 获取一个字符串的编码长度<br>strnatcasecmp — 使用自然排序法对字符串进行大小比较，不区分大小写<br>strnatcmp — 使用自然排序法对字符串进行大小比较<br>strncasecmp — 对字符串的前N个字符进行大小比较，不区分大小写<br>strncmp — 对字符串的前N个字符进行大小比较<br>strpbrk — 通过比较返回一个字符串的部分<br>strpos — 查找并返回首个匹配项的位置<br>strrchr — 通过从后往前比较返回一个字符串的部分<br>strrev — 将字符串里面的所有字母反向排列<br>strripos — 从后往前查找并返回首个匹配项的位置，匹配不区分大小写<br>strrpos – 从后往前查找并返回首个匹配项的位置<br>strspn — 匹配并返回字符连续出现长度的值<br>strstr — 通过比较返回一个字符串的部分<br>strtok — 用指定的若干个字符来分割字符串<br>strtolower — 将字符串转变为小写<br>strtoupper –将字符串转变为大写<br>strtr — 对字符串比较替换<br>substr_compare — 对字符串进行截取后的比较<br>substr_count — 计算字符串中某字符段的出现次数<br>substr_replace — 对字符串中的部分字符进行替换<br>substr — 对字符串进行截取<br>trim — 去除字符串两边的空白或者指定的字符<br>ucfirst — 将所给字符串的第一个字母转换为大写<br>ucwords — 将所给字符串的每一个英文单词的第一个字母变成大写<br>vfprintf — 按照要求对数据进行返回，并直接写入文档流<br>vprintf — 按照要求对数据进行显示<br>vsprintf — 按照要求对数据进行返回，但是不输出<br>wordwrap — 按照一定的字符长度分割字符串</p>
+
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+            
+                <div class="col-md-4">
+                    
+                </div>
+            
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/02/13/algorithms/red-packet/" style="float: left;">
+        ← 微信红包的随机算法与架构
+    </a>
+    
+    
+    <a class="pull-right" href="/2015/12/24/backend/database/redis-10/">
+        10个Redis建议/技巧（转） →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/01/17/backend/php/string-func/" data-title="PHP处理字符串函数" data-url="http://suninuni.com/2016/01/17/backend/php/string-func/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"Suninuni"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2015<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Buffoon Sun. All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+
+      <!-- Load our scripts -->
+
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    var bigfa_scroll = {
+        drawCircle: function(id, percentage, color) {
+            var button = $(id)
+            var width = button.width();
+            var height = button.height();
+            var radius = parseInt(width / 2.20);
+            var position = width;
+            var positionBy2 = position / 2;
+            var bg = button[0];
+            id = id.split("#");
+            var ctx = bg.getContext("2d");
+            var imd = null;
+            var circ = Math.PI * 2;
+            var quart = Math.PI / 2;
+            ctx.clearRect(0, 0, width, height);
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineCap = "square";
+            ctx.closePath();
+            ctx.fill();
+            ctx.lineWidth = 3;
+            imd = ctx.getImageData(0, 0, position, position);
+            var draw = function(current, ctxPass) {
+                ctxPass.putImageData(imd, 0, 0);
+                ctxPass.beginPath();
+                ctxPass.arc(positionBy2, positionBy2, radius, -(quart), ((circ) * current) - quart, false);
+                ctxPass.stroke();
+            }
+            draw(percentage / 100, ctx);
+        },
+        backToTop: function($this) {
+            $this.click(function() {
+                jQuery("body,html").animate({
+                    scrollTop: jQuery(window).height()
+                },
+                800);
+                return false;
+            });
+        },
+        scrollHook: function($this, color) {
+            color = color ? color: "#000000";
+            $this.scroll(function() {
+                var docHeight = (jQuery(document).height() - jQuery(window).height()),
+                $windowObj = $this,
+                $per = jQuery(".per"),
+                percentage = 0;
+                defaultScroll = $windowObj.scrollTop();
+                percentage = parseInt((defaultScroll / docHeight) * 100);
+                var backToTop = jQuery("#backtoTop");
+                if (backToTop.length > 0) {
+                    if ($windowObj.scrollTop() > jQuery(window).height()) {
+                        backToTop.addClass("button--show");
+                    } else {
+                        backToTop.removeClass("button--show");
+                    }
+                    if (document.body.clientWidth < 1111) {
+                        backToTop.removeClass("button--show");
+                    }
+                    $per.attr("data-percent", percentage);
+                    bigfa_scroll.drawCircle("#backtoTopCanvas", percentage, color);
+                }
+
+            });
+        }
+    }
+
+    $(document).ready(function($) {
+    $("body").append('<div id="backtoTop" data-action="gototop"><canvas id="backtoTopCanvas" width="48" height="48"></canvas><div class="per"></div></div>');
+        var T = bigfa_scroll;
+        T.backToTop($("#backtoTop"));
+        T.scrollHook($(window), "#666666");
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+
+</body>
+</html>

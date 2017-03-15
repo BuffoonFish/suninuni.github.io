@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>10个Redis建议/技巧（转） | Suninuni</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="baidu-site-verification" content="9U7P6kzHUi" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Suninuni">
+    <meta name="author" content="Buffoon Sun">
+    <meta name="description" content="Sun Zhenyu" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/image/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Suninuni" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/solarized_light.css" type="text/css">
+    
+
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <style id='inline-css' type='text/css'>
+    #backtoTop {
+        background-color: #eee;
+        border-radius: 100%;
+        bottom: 10%;
+        height: 48px;
+        position: fixed;
+        right: -100px;
+        width: 48px;
+        transition: 0.5s;
+        -webkit-transition: 0.5s
+    }
+    #backtoTop.button--show {
+        right: 85px;
+        bottom: 120px;
+        z-index: 100;
+    }
+    .per {
+        font-size:16 px;
+        height: 48px;
+        line-height: 48px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 48px;
+        color: #666;
+        cursor: pointer
+    }
+    .per:before {
+        content: attr(data-percent);
+        font-size: 20px
+    }
+    .per:hover:before {
+        content: "Top↑";
+        font-size: 15px
+    }
+</style>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/image/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Design-pattern/" class="animsition-link">Design pattern<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/Implement/" class="animsition-link">Implement<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/JavaScript/" class="animsition-link">JavaScript<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Linux/" class="animsition-link">Linux<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Tags<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/tags/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/AngularJS/" class="animsition-link">AngularJS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Atom/" class="animsition-link">Atom<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Expect/" class="animsition-link">Expect<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/JavaScript/" class="animsition-link">JavaScript<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/OO/" class="animsition-link">OO<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Redis/" class="animsition-link">Redis<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Router/" class="animsition-link">Router<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/SASS/" class="animsition-link">SASS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Share/" class="animsition-link">Share<small>(5)</small></a></li>
+				    
+				    <li><a href="/tags/Shell/" class="animsition-link">Shell<small>(3)</small></a></li>
+				    
+				    <li><a href="/tags/String/" class="animsition-link">String<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/TKL/" class="animsition-link">TKL<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/VIM/" class="animsition-link">VIM<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/git/" class="animsition-link">git<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/job/" class="animsition-link">job<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/nodePPT/" class="animsition-link">nodePPT<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript权威指南》/" class="animsition-link">《JavaScript权威指南》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript语言精粹》/" class="animsition-link">《JavaScript语言精粹》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/前端/" class="animsition-link">前端<small>(3)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://html5ify.com/fks/" class="animsition-link">Front-end Skill Stack</a></li>
+                    
+                    <li><a href="http://hexo.io/" class="animsition-link">Hexo</a></li>
+                    
+                    <li><a href="https://leetcode.com/problemset/algorithms/" class="animsition-link">LeetCode</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/image/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Suninuni</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/image/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>LEARN AND LIVE.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>Living by coding life。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2015-12-23T16:00:00.000Z" itemprop="datePublished">
+          2015-12-24
+      </time>
+    
+    
+    | 
+    <a href='/tags/Share/'>Share</a>,
+    
+    <a href='/tags/Redis/'>Redis</a>,
+    
+    <a href='/tags/Database/'>Database</a>
+    
+    
+</span>
+                <h1>10个Redis建议/技巧（转）</h1>
+            </div>
+        </div>
+        <div class="row col-md-offset-2">
+      		<div class="col-md-8">
+                <p>Redis 在当前的技术社区里是非常热门的。从来自 Antirez 一个小小的个人项目到成为内存数据存储行业的标准， Redis 已经走过了很长的一段路。随之而来的一系列最佳实践，使得大多数人可以正确地使用 Redis 。下面我们将探索正确使用 Redis 的 10 个技巧。</p>
+<a id="more"></a>
+<h3 id="停止使用-KEYS"><a href="#停止使用-KEYS" class="headerlink" title="停止使用 KEYS *"></a>停止使用 KEYS *</h3><p>Okay ，以挑战这个命令开始这篇文章，或许并不是一个好的方式，但其确实可能是最重要的一点。很多时候当我们关注一个 Redis 实例的统计数据，我们会快速地输入 <code>KEYS *</code>命令，这样key的信息会很明显地展示出来。平心而论，从程序化的角度出发往往倾向于写出下面这样的伪代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for key in&apos;keys *&apos;:</div><div class="line"></div><div class="line">doAllTheThings()</div></pre></td></tr></table></figure>
+<p>但是当你有1300万个key时，执行速度将会变慢。因为<code>KEYS</code>命令的时间复杂度是O(n)，其中n是要返回的keys的个数，这样这个命令的复杂度就取决于数据库的大小了。并且在这个操作执行期间，其它任何命令在你的实例中都无法执行。</p>
+<p>作为一个替代命令，看一下<code>SCAN</code>吧，其允许你以一种更友好的方式来执行 … <code>SCAN</code>通过增量迭代的方式来扫描数据库。这一操作基于游标的迭代器来完成的，因此只要你觉得合适，你可以随时停止或继续。</p>
+<hr>
+<h3 id="找出拖慢-Redis-的罪魁祸首"><a href="#找出拖慢-Redis-的罪魁祸首" class="headerlink" title="找出拖慢 Redis 的罪魁祸首"></a>找出拖慢 Redis 的罪魁祸首</h3><p>由于 Redis 没有非常详细的日志，要想知道在 Redis 实例内部都做了些什么是非常困难的。幸运的是 Redis 提供了一个下面这样的命令统计工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt; INFO commandstats</div><div class="line"># Commandstats</div><div class="line">cmdstat_get:calls=78,usec=608,usec_per_call=7.79</div><div class="line">cmdstat_setex:calls=5,usec=71,usec_per_call=14.20</div><div class="line">cmdstat_keys:calls=2,usec=42,usec_per_call=21.00</div><div class="line">cmdstat_info:calls=10,usec=1931,usec_per_call=193.10</div></pre></td></tr></table></figure>
+<p>通过这个工具可以查看所有命令统计的快照，比如命令执行了多少次，执行命令所耗费的毫秒数 ( 每个命令的总时间和平均时间 )</p>
+<p>只需要简单地执行 <code>CONFIG RESETSTAT</code> 命令就可以重置，这样你就可以得到一个全新的统计结果。</p>
+<hr>
+<h3 id="将-Redis-Benchmark-结果作为参考，而不要一概而论"><a href="#将-Redis-Benchmark-结果作为参考，而不要一概而论" class="headerlink" title="将 Redis-Benchmark 结果作为参考，而不要一概而论"></a>将 Redis-Benchmark 结果作为参考，而不要一概而论</h3><p>Redis 之父 Salvatore 就说过： “ 通过执行 GET/SET 命令来测试 Redis 就像在雨天检测法拉利的雨刷清洁镜子的效果 ” 。很多时候人们跑到我这里，他们想知道为什么自己的 Redis-Benchmark 统计的结果低于最优结果 。但我们必须要把各种不同的真实情况考虑进来，例如：</p>
+<ul>
+<li>可能受到哪些客户端运行环境的限制？</li>
+<li>是同一个版本号吗？</li>
+<li>测试环境中的表现与应用将要运行的环境是否一致？</li>
+</ul>
+<p>Redis-Benchmark 的测试结果提供了一个保证你的 Redis-Server 不会运行在非正常状态下的基准点，但是你永远不要把它作为一个真实的 “ 压力测试 ” 。压力测试需要反应出应用的运行方式，并且需要一个尽可能的和生产相似的环境。</p>
+<hr>
+<h3 id="Hashes-是你的最佳选择"><a href="#Hashes-是你的最佳选择" class="headerlink" title="Hashes 是你的最佳选择"></a>Hashes 是你的最佳选择</h3><p>以一种优雅的方式引入 hashes 吧。 hashes 将会带给你一种前所未有的体验。之前我曾看到过许多类似于下面这样的 key 结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo: first_name</div><div class="line">foo: last_name</div><div class="line">foo: address</div></pre></td></tr></table></figure>
+<p>上面的例子中， foo 可能是一个用户的用户名，其中的每一项都是一个单独的 key 。这就增加了   犯错的空间，和一些不必要的 key 。使用 hash 代替吧，你会惊奇地发现竟然只需要一个 key ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt; HSET foo first_name &quot;Joe&quot;(integer) 1</div><div class="line">127.0.0.1:6379&gt; HSET foo last_name &quot;Engel&quot;(integer) 1</div><div class="line">127.0.0.1:6379&gt; HSET foo address &quot;1 Fanatical Pl&quot;(integer) 1</div><div class="line">127.0.0.1:6379&gt; HGETALL foo</div><div class="line">1)&quot;first_name&quot;</div><div class="line">2)&quot;Joe&quot;</div><div class="line">3)&quot;last_name&quot;</div><div class="line">4)&quot;Engel&quot;</div><div class="line">5)&quot;address&quot;</div><div class="line">6)&quot;1 Fanatical Pl&quot;</div><div class="line">127.0.0.1:6379&gt; HGET foo first_name</div><div class="line">&quot;Joe&quot;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="设置-key-值的存活时间"><a href="#设置-key-值的存活时间" class="headerlink" title="设置 key 值的存活时间"></a>设置 key 值的存活时间</h3><p>无论什么时候，只要有可能就利用 key 超时的优势。一个很好的例子就是储存一些诸如临时认证 key 之类的东西。当你去查找一个授权 key 时 —— 以 OAUTH 为例 —— 通常会得到一个超时时间。这样在设置 key 的时候，设成同样的超时时间， Redis 就会自动为你清除！而不再需要使用 KEYS * 来遍历所有的 key 了，怎么样很方便吧？</p>
+<hr>
+<h3 id="选择合适的回收策略"><a href="#选择合适的回收策略" class="headerlink" title="选择合适的回收策略"></a>选择合适的回收策略</h3><p>既然谈到了清除 key 这个话题，那我们就来聊聊回收策略。当 Redis 的实例空间被填满了之后，将会尝试回收一部分 key 。根据你的使用方式，我强烈建议使用 volatile-lru 策略 —— 前提是你对 key 已经设置了超时。但如果你运行的是一些类似于 cache 的东西，并且没有对 key 设置超时机制，可以考虑使用 allkeys-lru 回收机制。我的建议是先在 这里 查看一下可行的方案。</p>
+<hr>
+<h3 id="如果你的数据很重要，请使用-Try-Except"><a href="#如果你的数据很重要，请使用-Try-Except" class="headerlink" title="如果你的数据很重要，请使用 Try/Except"></a>如果你的数据很重要，请使用 Try/Except</h3><p>如果必须确保关键性的数据可以被放入到 Redis 的实例中，我强烈建议将其放入 <code>try/except</code> 块中。几乎所有的 Redis 客户端采用的都是 “ 发送即忘 ” 策略，因此经常需要考虑一个 key 是否真正被放到 Redis 数据库中了。至于将 <code>try/expect</code> 放到 Redis 命令中的复杂性并不是本文要讲的，你只需要知道这样做可以确保重要的数据放到该放的地方就可以了。</p>
+<hr>
+<h3 id="不要耗尽一个实例"><a href="#不要耗尽一个实例" class="headerlink" title="不要耗尽一个实例"></a>不要耗尽一个实例</h3><p>无论什么时候，只要有可能就分散多 redis 实例的工作量。从 3.0.0 版本开始， Redis 就支持集群了。 Redis 集群允许你基于 key 范围分离出部分包含主 / 从模式的 key 。完整的集群背后的 “ 魔法 ” 可以在 这里 找到。但如果你是在找教程，那 这里 是一个再适合不过的地方了。如果不能选择集群，考虑一下命名空间吧，然后将你的 key 分散到多个实例之中。关于怎样分配数据，在 redis.io 网站上有 这篇 精彩的评论。</p>
+<hr>
+<h3 id="内核越多越好吗？！"><a href="#内核越多越好吗？！" class="headerlink" title="内核越多越好吗？！"></a>内核越多越好吗？！</h3><p>当然是错的。 Redis 是一个单线程进程，即使启用了持久化最多也只会消耗两个内核。除非你计划在一台主机上运行多个实例 —— 希望只会是在开发测试的环境下！ —— 否则的话对于一个 Redis 实例是不需要 2 个以上内核的。</p>
+<hr>
+<h3 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h3><p>到目前为止 Redis Sentinel 已经经过了很全面的测试，很多用户已经将其应用到了生产环境中（包括 ObjectRocket ）。如果你的应用重度依赖于 Redis ，那就需要想出一个高可用方案来保证其不会掉线。当然，如果不想自己管理这些东西， ObjectRocket 提供了一个高可用平台，并提供 7×24 小时的技术支持，有意向的话可以考虑一下。</p>
+
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+            
+                <div class="col-md-4">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#停止使用-KEYS"><span class="toc-text">停止使用 KEYS *</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#找出拖慢-Redis-的罪魁祸首"><span class="toc-text">找出拖慢 Redis 的罪魁祸首</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将-Redis-Benchmark-结果作为参考，而不要一概而论"><span class="toc-text">将 Redis-Benchmark 结果作为参考，而不要一概而论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hashes-是你的最佳选择"><span class="toc-text">Hashes 是你的最佳选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-key-值的存活时间"><span class="toc-text">设置 key 值的存活时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择合适的回收策略"><span class="toc-text">选择合适的回收策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果你的数据很重要，请使用-Try-Except"><span class="toc-text">如果你的数据很重要，请使用 Try/Except</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要耗尽一个实例"><span class="toc-text">不要耗尽一个实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内核越多越好吗？！"><span class="toc-text">内核越多越好吗？！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高可用"><span class="toc-text">高可用</span></a></li></ol>
+                </div>
+            
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/01/17/backend/php/string-func/" style="float: left;">
+        ← PHP处理字符串函数
+    </a>
+    
+    
+    <a class="pull-right" href="/2015/12/17/implement/git-command/">
+        Git： 代码合并 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2015/12/24/backend/database/redis-10/" data-title="10个Redis建议/技巧（转）" data-url="http://suninuni.com/2015/12/24/backend/database/redis-10/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"Suninuni"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2015<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Buffoon Sun. All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+
+      <!-- Load our scripts -->
+
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    var bigfa_scroll = {
+        drawCircle: function(id, percentage, color) {
+            var button = $(id)
+            var width = button.width();
+            var height = button.height();
+            var radius = parseInt(width / 2.20);
+            var position = width;
+            var positionBy2 = position / 2;
+            var bg = button[0];
+            id = id.split("#");
+            var ctx = bg.getContext("2d");
+            var imd = null;
+            var circ = Math.PI * 2;
+            var quart = Math.PI / 2;
+            ctx.clearRect(0, 0, width, height);
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineCap = "square";
+            ctx.closePath();
+            ctx.fill();
+            ctx.lineWidth = 3;
+            imd = ctx.getImageData(0, 0, position, position);
+            var draw = function(current, ctxPass) {
+                ctxPass.putImageData(imd, 0, 0);
+                ctxPass.beginPath();
+                ctxPass.arc(positionBy2, positionBy2, radius, -(quart), ((circ) * current) - quart, false);
+                ctxPass.stroke();
+            }
+            draw(percentage / 100, ctx);
+        },
+        backToTop: function($this) {
+            $this.click(function() {
+                jQuery("body,html").animate({
+                    scrollTop: jQuery(window).height()
+                },
+                800);
+                return false;
+            });
+        },
+        scrollHook: function($this, color) {
+            color = color ? color: "#000000";
+            $this.scroll(function() {
+                var docHeight = (jQuery(document).height() - jQuery(window).height()),
+                $windowObj = $this,
+                $per = jQuery(".per"),
+                percentage = 0;
+                defaultScroll = $windowObj.scrollTop();
+                percentage = parseInt((defaultScroll / docHeight) * 100);
+                var backToTop = jQuery("#backtoTop");
+                if (backToTop.length > 0) {
+                    if ($windowObj.scrollTop() > jQuery(window).height()) {
+                        backToTop.addClass("button--show");
+                    } else {
+                        backToTop.removeClass("button--show");
+                    }
+                    if (document.body.clientWidth < 1111) {
+                        backToTop.removeClass("button--show");
+                    }
+                    $per.attr("data-percent", percentage);
+                    bigfa_scroll.drawCircle("#backtoTopCanvas", percentage, color);
+                }
+
+            });
+        }
+    }
+
+    $(document).ready(function($) {
+    $("body").append('<div id="backtoTop" data-action="gototop"><canvas id="backtoTopCanvas" width="48" height="48"></canvas><div class="per"></div></div>');
+        var T = bigfa_scroll;
+        T.backToTop($("#backtoTop"));
+        T.scrollHook($(window), "#666666");
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+
+</body>
+</html>

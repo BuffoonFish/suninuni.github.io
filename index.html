@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>Suninuni</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="baidu-site-verification" content="9U7P6kzHUi" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Suninuni">
+    <meta name="author" content="Buffoon Sun">
+    <meta name="description" content="Sun Zhenyu" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/image/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Suninuni" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/solarized_light.css" type="text/css">
+    
+
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <style id='inline-css' type='text/css'>
+    #backtoTop {
+        background-color: #eee;
+        border-radius: 100%;
+        bottom: 10%;
+        height: 48px;
+        position: fixed;
+        right: -100px;
+        width: 48px;
+        transition: 0.5s;
+        -webkit-transition: 0.5s
+    }
+    #backtoTop.button--show {
+        right: 85px;
+        bottom: 120px;
+        z-index: 100;
+    }
+    .per {
+        font-size:16 px;
+        height: 48px;
+        line-height: 48px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 48px;
+        color: #666;
+        cursor: pointer
+    }
+    .per:before {
+        content: attr(data-percent);
+        font-size: 20px
+    }
+    .per:hover:before {
+        content: "Top↑";
+        font-size: 15px
+    }
+</style>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="home-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/image/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Design-pattern/" class="animsition-link">Design pattern<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/Implement/" class="animsition-link">Implement<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/JavaScript/" class="animsition-link">JavaScript<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Linux/" class="animsition-link">Linux<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Tags<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/tags/Algorithms/" class="animsition-link">Algorithms<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/AngularJS/" class="animsition-link">AngularJS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Atom/" class="animsition-link">Atom<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/CSS/" class="animsition-link">CSS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Database/" class="animsition-link">Database<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Expect/" class="animsition-link">Expect<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/JavaScript/" class="animsition-link">JavaScript<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/Notes/" class="animsition-link">Notes<small>(2)</small></a></li>
+				    
+				    <li><a href="/tags/OO/" class="animsition-link">OO<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/PHP/" class="animsition-link">PHP<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Redis/" class="animsition-link">Redis<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Router/" class="animsition-link">Router<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/SASS/" class="animsition-link">SASS<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/Share/" class="animsition-link">Share<small>(5)</small></a></li>
+				    
+				    <li><a href="/tags/Shell/" class="animsition-link">Shell<small>(3)</small></a></li>
+				    
+				    <li><a href="/tags/String/" class="animsition-link">String<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/TKL/" class="animsition-link">TKL<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/VIM/" class="animsition-link">VIM<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/git/" class="animsition-link">git<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/job/" class="animsition-link">job<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/nodePPT/" class="animsition-link">nodePPT<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript权威指南》/" class="animsition-link">《JavaScript权威指南》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/《JavaScript语言精粹》/" class="animsition-link">《JavaScript语言精粹》<small>(1)</small></a></li>
+				    
+				    <li><a href="/tags/前端/" class="animsition-link">前端<small>(3)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://html5ify.com/fks/" class="animsition-link">Front-end Skill Stack</a></li>
+                    
+                    <li><a href="http://hexo.io/" class="animsition-link">Hexo</a></li>
+                    
+                    <li><a href="https://leetcode.com/problemset/algorithms/" class="animsition-link">LeetCode</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/image/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Suninuni</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/image/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>LEARN AND LIVE.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>Living by coding life。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+
+      <!-- ============================ Content =========================== -->
+
+<section id="intro">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/03/15/linux/crontap/">Linux下`cron`定时任务的实现</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-03-15T14:14:53.639Z" itemprop="datePublished">
+          2017-03-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/Shell/'>Shell</a>,
+    
+    <a href='/tags/job/'>job</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>接触定时任务的目的是为了使用阿里云的服务器定时向kindle上推送抓取的文章，<code>cron</code>使用起来还是十分方便的。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/03/15/linux/crontap/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/03/15/implement/atom/">Atom配置与插件</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-03-15T14:14:53.626Z" itemprop="datePublished">
+          2017-03-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/Share/'>Share</a>,
+    
+    <a href='/tags/Atom/'>Atom</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>插件总是编辑器最重要的一部分，在这里记录一下我使用的一些比较好的插件，同时方便于自己在重新安装的时候不至于忘记这些优秀的插件。</p>
+<p>至于为什么会选择Atom，因为它漂亮啊。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/03/15/implement/atom/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/05/20/linux/vim/">VIM快捷键速查图</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-05-19T16:00:00.000Z" itemprop="datePublished">
+          2016-05-20
+      </time>
+    
+    
+    | 
+    <a href='/tags/Shell/'>Shell</a>,
+    
+    <a href='/tags/VIM/'>VIM</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>本来是不打算入VIM的坑，毕竟那么多命令要记，而且和之前的操作习惯很不一样。但最近由于项目原因入了Idea的坑，快捷键已乱，还不如记一些常用的。在网上发现了这张图，很有用，Mark一下。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/05/20/linux/vim/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/02/13/algorithms/red-packet/">微信红包的随机算法与架构</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-02-12T16:00:00.000Z" itemprop="datePublished">
+          2016-02-13
+      </time>
+    
+    
+    | 
+    <a href='/tags/Algorithms/'>Algorithms</a>,
+    
+    <a href='/tags/Share/'>Share</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>在网上看到的，同时在实际项目中碰到了相似的问题，主要是架构方面，因此转载过来。先上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getRandomMoney</span><span class="params">(LeftMoneyPackage _leftMoneyPackage)</span> </span>&#123;</div><div class="line">    <span class="comment">// remainSize 剩余的红包数量</span></div><div class="line">    <span class="comment">// remainMoney 剩余的钱</span></div><div class="line">    <span class="keyword">if</span> (_leftMoneyPackage.remainSize == <span class="number">1</span>) &#123;</div><div class="line">        _leftMoneyPackage.remainSize--;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">double</span>) Math.round(_leftMoneyPackage.remainMoney * <span class="number">100</span>) / <span class="number">100</span>;</div><div class="line">    &#125;</div><div class="line">    Random r = <span class="keyword">new</span> Random();</div><div class="line">    <span class="keyword">double</span> min = <span class="number">0.01</span>; <span class="comment">//</span></div><div class="line">    <span class="keyword">double</span> max = _leftMoneyPackage.remainMoney / _leftMoneyPackage.remainSize * <span class="number">2</span>;</div><div class="line">    <span class="keyword">double</span> money = r.nextDouble() * max;</div><div class="line">    money = money &lt;= min ? <span class="number">0.01</span>: money;</div><div class="line">    money = Math.floor(money * <span class="number">100</span>) / <span class="number">100</span>;</div><div class="line">    _leftMoneyPackage.remainSize--;</div><div class="line">    _leftMoneyPackage.remainMoney -= money;</div><div class="line">    <span class="keyword">return</span> money;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/02/13/algorithms/red-packet/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/01/17/backend/php/string-func/">PHP处理字符串函数</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished">
+          2016-01-17
+      </time>
+    
+    
+    | 
+    <a href='/tags/PHP/'>PHP</a>,
+    
+    <a href='/tags/String/'>String</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>处理函数的列表，以供查询。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/01/17/backend/php/string-func/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/12/24/backend/database/redis-10/">10个Redis建议/技巧（转）</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-12-23T16:00:00.000Z" itemprop="datePublished">
+          2015-12-24
+      </time>
+    
+    
+    | 
+    <a href='/tags/Share/'>Share</a>,
+    
+    <a href='/tags/Redis/'>Redis</a>,
+    
+    <a href='/tags/Database/'>Database</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>Redis 在当前的技术社区里是非常热门的。从来自 Antirez 一个小小的个人项目到成为内存数据存储行业的标准， Redis 已经走过了很长的一段路。随之而来的一系列最佳实践，使得大多数人可以正确地使用 Redis 。下面我们将探索正确使用 Redis 的 10 个技巧。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/12/24/backend/database/redis-10/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/12/17/implement/git-command/">Git： 代码合并</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-12-16T16:00:00.000Z" itemprop="datePublished">
+          2015-12-17
+      </time>
+    
+    
+    | 
+    <a href='/tags/Share/'>Share</a>,
+    
+    <a href='/tags/git/'>git</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>早在之前，就已经了解过git中几种不同合并代码方法的异同。相信这是在一个较大的项目中都会遇到的抉择。本文的主要目的其实是为了推荐一个git的交互式学习网站，同时记下几个比较有用的命令。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/12/17/implement/git-command/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/12/04/implement/nodeppt/">nodePPT - 让你爱上做分享！</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-12-03T16:00:00.000Z" itemprop="datePublished">
+          2015-12-04
+      </time>
+    
+    
+    | 
+    <a href='/tags/Share/'>Share</a>,
+    
+    <a href='/tags/nodePPT/'>nodePPT</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p><strong>?:为什么选择nodePPT</strong></p>
+<p>!:这可能是迄今为止最好的网页版PPT</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/12/04/implement/nodeppt/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/12/03/frontend/css/sass-base/">那些SASS希望你知道的事</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-12-02T16:00:00.000Z" itemprop="datePublished">
+          2015-12-03
+      </time>
+    
+    
+    | 
+    <a href='/tags/前端/'>前端</a>,
+    
+    <a href='/tags/SASS/'>SASS</a>,
+    
+    <a href='/tags/CSS/'>CSS</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>SASS(<code>Syntactically Awesome Style Sheets</code>)是一种CSS的预处理框架，它使编写CSS变得有组织性并富有逻辑，而不是一味平铺直诉，同样的也让大量的CSS变得易于维护。本文会解释一些SASS引以为傲的特性，这也是为什么我们会选择使用它的原因。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/12/03/frontend/css/sass-base/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/12/01/frontend/js/ui-router/">Angular-Ui/ui-Router</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-11-30T16:00:00.000Z" itemprop="datePublished">
+          2015-12-01
+      </time>
+    
+    
+    | 
+    <a href='/tags/前端/'>前端</a>,
+    
+    <a href='/tags/AngularJS/'>AngularJS</a>,
+    
+    <a href='/tags/Router/'>Router</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>任何一个MVC(MVVM)框架,无论是前端还是后端都有一套适合自身的路由规则.AngularJS原生的路由规则是<code>ngRouter</code>,使用起来极其方便.但是随着单页面应用的需求不断扩大, <code>ngRouter</code>已经不能满足很多情况,比如它不能实现多视图,不能实现视图的嵌套等等,缺点逐渐被暴露.<code>ngRouter</code>开发团队(准确的说是<code>AngularJS</code>开发团队)基于状态的方式重新实现了<code>ngRouter</code>,并将其从<code>AngularJS</code>中提取出写成了单独的模块,依赖于<code>AngularJS</code>,使用者可以根据需求安装<code>ui-router</code>.</p></p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/12/01/frontend/js/ui-router/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <nav class="pagination" role="pagination">
+          
+          <a class="pull-right" href="/page/2/">Older Posts →</a>
+        </nav>
+    </div>
+</section>
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>也许生命的尽头不仅仅是旅途的终点。</p>
+        </div>
+    </div>
+</section>
+<!-- ============================ END Content =========================== -->
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2015<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Buffoon Sun. All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/suninuni" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/suninun" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/sunzybuffoon" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+
+      <!-- Load our scripts -->
+
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    var bigfa_scroll = {
+        drawCircle: function(id, percentage, color) {
+            var button = $(id)
+            var width = button.width();
+            var height = button.height();
+            var radius = parseInt(width / 2.20);
+            var position = width;
+            var positionBy2 = position / 2;
+            var bg = button[0];
+            id = id.split("#");
+            var ctx = bg.getContext("2d");
+            var imd = null;
+            var circ = Math.PI * 2;
+            var quart = Math.PI / 2;
+            ctx.clearRect(0, 0, width, height);
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineCap = "square";
+            ctx.closePath();
+            ctx.fill();
+            ctx.lineWidth = 3;
+            imd = ctx.getImageData(0, 0, position, position);
+            var draw = function(current, ctxPass) {
+                ctxPass.putImageData(imd, 0, 0);
+                ctxPass.beginPath();
+                ctxPass.arc(positionBy2, positionBy2, radius, -(quart), ((circ) * current) - quart, false);
+                ctxPass.stroke();
+            }
+            draw(percentage / 100, ctx);
+        },
+        backToTop: function($this) {
+            $this.click(function() {
+                jQuery("body,html").animate({
+                    scrollTop: jQuery(window).height()
+                },
+                800);
+                return false;
+            });
+        },
+        scrollHook: function($this, color) {
+            color = color ? color: "#000000";
+            $this.scroll(function() {
+                var docHeight = (jQuery(document).height() - jQuery(window).height()),
+                $windowObj = $this,
+                $per = jQuery(".per"),
+                percentage = 0;
+                defaultScroll = $windowObj.scrollTop();
+                percentage = parseInt((defaultScroll / docHeight) * 100);
+                var backToTop = jQuery("#backtoTop");
+                if (backToTop.length > 0) {
+                    if ($windowObj.scrollTop() > jQuery(window).height()) {
+                        backToTop.addClass("button--show");
+                    } else {
+                        backToTop.removeClass("button--show");
+                    }
+                    if (document.body.clientWidth < 1111) {
+                        backToTop.removeClass("button--show");
+                    }
+                    $per.attr("data-percent", percentage);
+                    bigfa_scroll.drawCircle("#backtoTopCanvas", percentage, color);
+                }
+
+            });
+        }
+    }
+
+    $(document).ready(function($) {
+    $("body").append('<div id="backtoTop" data-action="gototop"><canvas id="backtoTopCanvas" width="48" height="48"></canvas><div class="per"></div></div>');
+        var T = bigfa_scroll;
+        T.backToTop($("#backtoTop"));
+        T.scrollHook($(window), "#666666");
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+
+</body>
+</html>
